@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% block body %}
+ {% if session.logged_in %}
+ <!--person-->
+    <form action="{{url_for('add_person')}}" method=post class=add-person>
+       <d1>
+           <dt>Name（姓名）:
+            <dd><input type=text size=30 name=name>
+            <dt>Student ID（学号）:
+            <dd><input type=text size=30 name=studentid>
+            <dt>Sex（性别）:
+            <dd><input type=text size=30 name=sex>
+            <dt>Telephone（电话）:
+            <dd><input type=text size=30 name=tel>
+            <dt>Emile（邮箱）:
+            <dd><input type=text size=30 name=emile>
+            <dt>Class（例2015-3计算机某某某）:
+            <dd><input type=text size=30 name=class>
+            <dt>Department（部门）:
+            <dd><input type=text size=30 name=department>
+            <dt>Self-introduction（自我介绍，爱好特长等）:
+            <dd><input type=text size=30 name=self_introduction>
+            <dd><input type=submit value=Person>
+         
+       </d1>
+   </form>
+   {% endif %}
+   <!--person-->
+<ul class=persons>
+{% for person in persons %}
+    <li><h2>{{person.name}}</h2>{{person.studentid}}<br>{{person.sex}}<br>{{person.tel}}<br>{{person.emile}}<br>{{person.class}}<br>{{person.department}}<br>{{person.self_introduction}}
+{% else %}
+    <li><em>Unbelievable.   Noentries here so far</em>
+{% endfor %}
+</ul>
+
+{% endblock %}

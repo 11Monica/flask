@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block body %}
+ {% if session.logged_in %}
+ <!--person-->
+    <form action="{{url_for('update_person')}}" method='POST' class=update-person>
+       <d1>
+           <dt>Name（姓名）:
+            <dd><input type=text size=30 name=name>
+            <dt>Student ID（学号）:
+            <dd><input type=integer size=30 name=studentid>
+            <dt>Sex（性别）:
+            <dd><input type=text size=30 name=sex>
+            <dt>Telephone（电话）:
+            <dd><input type=text size=30 name=tel>
+            <dt>Emile（邮箱）:
+            <dd><input type=text size=30 name=emile>
+            <dt>Class（例2015-3计算机某某某）:
+            <dd><input type=text size=30 name=class>
+            <dt>Department（部门）:
+            <dd><input type=text size=30 name=department>
+            <dt>Self-introduction（自我介绍，爱好特长等）:
+            <dd><input type=text size=30 name=self_introduction>
+            <dd><input type=submit value=PersonUpdate>
+       </d1>
+   </form>
+   {% endif %}
+   <!--person-->
+
+
+{% endblock %}
